@@ -26,6 +26,10 @@ type Role struct {
 	Role        string `json:"role"`
 }
 
+type Roles struct {
+	Roles []Role `json:"roles"`
+}
+
 type Input struct {
 	Subject string `json:"subject"`
 }
@@ -52,7 +56,14 @@ func init() {
 	dbName := os.Getenv("db_name")
 	dbHost := os.Getenv("db_host")
 
-	dbUri := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, username, dbName, password)
+	dbHost =  "postgres" //"localhost"
+	password = "perfectpassword"
+	dbName = "awesomedb"
+	username = "amazinguser"
+	portt := "32380" // This times out, connection times out on anything that is not 5432
+	portt = "5432"
+
+	dbUri := fmt.Sprintf("host=%s user=%s dbname=%s port=%s sslmode=disable password=%s", dbHost, username, dbName, portt, password)
 	fmt.Println(dbUri)
 
 	conn, err := gorm.Open("postgres", dbUri)
