@@ -28,7 +28,26 @@
 
 Client -> Authentication/Authorisation -> REST API -> Kubeclient GO 
 
-# To run the program
+# Points regarding the codebase
+
+ - **Authentication & Authorisation** -> Done using GORM and JWT
+
+ - **Database** -> Postgresql to store user's data
+
+ - **Actual work** -> Using kube-client Go to interact with Kubernetes API to be able to fetch the Roles etc.
+
+ - **Containerisation** -> Docker
+
+ - **Security** is taken care of by the above methods of Authentication and Authorisation. 
+
+ - **Backwards compatibility** 
+    - It can be generally ensured easily if the server undergoes non-breaking changes.
+    - In case of breaking changes, the client needs to be updated. 
+    - Regular `go mod vendor` for client
+    - Go build, test and integration tests before full deployment of a client to ensure compatibility.
+    - One can use gRPC to keep track of changes and make it easier for backwards compatibility by using versions.
+
+# To run the program (Locally without Kubernetes)
 
 Before running the main program locally: 
 
@@ -39,8 +58,6 @@ Before running the main program locally:
  - `psql postgres`
 
  - `CREATE DATABASE goapi;`
-
-
 
  - To stop: `brew services stop postgresql`
 
@@ -61,22 +78,5 @@ Body: `{"subject": "inputSubject"}`
 Execute it to get the output. 
 
 
-# Points regarding the codebase
 
- - **Authentication & Authorisation** -> Done using GORM and JWT
-
- - **Database** -> Postgresql to store user's data
-
- - **Actual work** -> Using kube-client Go to interact with Kubernetes API to be able to fetch the Roles etc.
-
- - **Containerisation** -> Docker
-
- - **Security** is taken care of by the above methods of Authentication and Authorisation. 
-
- - **Backwards compatibility** 
-    - It can be generally ensured easily if the server undergoes non-breaking changes.
-    - In case of breaking changes, the client needs to be updated. 
-    - Regular `go mod vendor` for client
-    - Go build, test and integration tests before full deployment of a client to ensure compatibility.
-    - One can use gRPC to keep track of changes and make it easier for backwards compatibility by using versions.
 
