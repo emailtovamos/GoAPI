@@ -1,4 +1,30 @@
-#Architecture
+# Quick Run
+kubectl apply -f database/.
+
+kubectl apply -f devops/.
+
+Open Postman
+
+`localhost:30900/api/user/new` -> POST Request
+
+Body: `{"email": "satya3@gmail.com", "password": "mypassword"}`
+
+Headers: `Content-type` - `application/json`
+
+Execute it and get the token
+
+Use this token to do the `GET` request to get the roles:
+
+`localhost:8001/api/roles`
+
+Authorization: Bearer Token - <token you copied before>
+
+Body: `{"subject": "inputSubject"}` 
+
+Execute it to get the output. 
+
+
+# Architecture
 
 Client -> Authentication/Authorisation -> REST API -> Kubeclient GO 
 
