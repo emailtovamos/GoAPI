@@ -6,7 +6,7 @@ metadata:
     app: postgres
     type: local
 spec:
-  storageClassName: myStorageclass
+  storageClassName: mystorageclass
   capacity:
     storage: 50M
   accessModes:
@@ -23,7 +23,7 @@ metadata:
   labels:
     app: postgres
 spec:
-  storageClassName: myStorageclass
+  storageClassName: mystorageclass
   capacity:
   accessModes:
     - ReadWriteOnce
