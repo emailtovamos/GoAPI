@@ -1,27 +1,27 @@
 # Quick Run
-kubectl apply -f database/.
+- `kubectl apply -f database/.`
 
-kubectl apply -f devops/.
+- `kubectl apply -f devops/.`
 
-Open Postman
+- Open Postman
 
-`localhost:30900/api/user/new` -> POST Request
+- `localhost:30900/api/user/new` -> `POST` Request
 
-Body: `{"email": "satya3@gmail.com", "password": "mypassword"}`
+- Body: `{"email": "satya3@gmail.com", "password": "mypassword"}`
 
-Headers: `Content-type` - `application/json`
+- Headers: `Content-type` - `application/json`
 
-Execute it and get the token
+- Execute it and get the token
 
-Use this token to do the `GET` request to get the roles:
+- Use this token to do the `GET` request to get the roles:
 
-`localhost:8001/api/roles`
+    - `localhost:8001/api/roles`
 
-Authorization: Bearer Token - <token you copied before>
+    - Authorization: Bearer Token - <token you copied before>
 
-Body: `{"subject": "inputSubject"}` 
+    - Body: `{"subject": "inputSubject"}` 
 
-Execute it to get the output. 
+    - Execute it to get the output. 
 
 
 # Architecture
