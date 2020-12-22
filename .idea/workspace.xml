@@ -30,7 +30,13 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/devops" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build github.com/emailtovamos/GoAPI/cli/server">
     <configuration name="go build github.com/emailtovamos/GoAPI" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoAPI" />
       <working_directory value="$PROJECT_DIR$" />
@@ -40,8 +46,18 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build github.com/emailtovamos/GoAPI/cli/server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="GoAPI" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cli/server/main.go" />
+      <package value="github.com/emailtovamos/GoAPI/cli/server" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/emailtovamos/GoAPI/cli/server" />
         <item itemvalue="Go Build.go build github.com/emailtovamos/GoAPI" />
       </list>
     </recent_temporary>
@@ -55,21 +71,25 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="455" y="245" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.826@0.23.1440.826" timestamp="1608517805637" />
-    <state width="1398" height="335" key="GridCell.Tab.0.bottom" timestamp="1608540300304">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1398" height="255" key="GridCell.Tab.0.bottom" timestamp="1608640023644">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
-    <state width="1398" height="335" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1608540300304" />
-    <state width="1398" height="335" key="GridCell.Tab.0.center" timestamp="1608540300303">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1398" height="407" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1608569858222" />
+    <state width="1398" height="255" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1608640023644" />
+    <state width="1398" height="255" key="GridCell.Tab.0.center" timestamp="1608640023639">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
-    <state width="1398" height="335" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1608540300303" />
-    <state width="1398" height="335" key="GridCell.Tab.0.left" timestamp="1608540300302">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1398" height="407" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1608569858210" />
+    <state width="1398" height="255" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1608640023639" />
+    <state width="1398" height="255" key="GridCell.Tab.0.left" timestamp="1608640023621">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
-    <state width="1398" height="335" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1608540300302" />
-    <state width="1398" height="335" key="GridCell.Tab.0.right" timestamp="1608540300304">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1398" height="407" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1608569858202" />
+    <state width="1398" height="255" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1608640023621" />
+    <state width="1398" height="255" key="GridCell.Tab.0.right" timestamp="1608640023642">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
-    <state width="1398" height="335" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1608540300304" />
+    <state width="1398" height="407" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1608569858211" />
+    <state width="1398" height="255" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1608640023642" />
   </component>
 </project>
