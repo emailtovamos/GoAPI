@@ -51,16 +51,16 @@ func init() {
 		fmt.Print(e)
 	}
 
-	username := os.Getenv("db_user")
+	username := os.Getenv("db_user") // This is how we will normally get the info from kubernetes secret. For now I have hardcoded
 	password := os.Getenv("db_pass")
 	dbName := os.Getenv("db_name")
 	dbHost := os.Getenv("db_host")
 
-	dbHost =  "postgres" //"localhost"
+	dbHost =  "postgres"
 	password = "perfectpassword"
 	dbName = "awesomedb"
 	username = "amazinguser"
-	portt := "32380" // This times out, connection times out on anything that is not 5432
+	portt := "32380"
 	portt = "5432"
 
 	dbUri := fmt.Sprintf("host=%s user=%s dbname=%s port=%s sslmode=disable password=%s", dbHost, username, dbName, portt, password)

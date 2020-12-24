@@ -8,6 +8,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"net/http"
 	"regexp"
+	"sort"
 
 	"context"
 	"fmt"
@@ -60,22 +61,16 @@ func getRoles(i *accounts.Input) map[string]interface{} {
 	var all accounts.Roles
 	for _, role := range allRoles {
 		all.Roles = append(all.Roles, accounts.Role{
-			Subject: "testSubject",
-			Role: role,
+			Subject: i.Subject,
+			Role:    role,
 		})
 	}
 	resp["roles"] = all
 
-
-	//resp["accounts"] = accounts.Role{
-	//	Subject: "testSubject",
-	//	Role: getRolesFromKubernetes()[0],
-	//} // TODO Get roles here by calling Kubernetes API
-
 	return resp
 }
 
-func getRolesFromKubernetes(i *accounts.Input) []string{
+func getRolesFromKubernetes(i *accounts.Input) []string {
 	givenSubject := i.Subject
 	var names []string
 	// creates the in-cluster config
@@ -88,9 +83,7 @@ func getRolesFromKubernetes(i *accounts.Input) []string{
 	if err != nil {
 		panic(err.Error())
 	}
-	//for {
-	// get pods in all the namespaces by omitting namespace
-	// Or specify namespace to get pods in particular namespace
+
 	pods, err := clientset.CoreV1().Pods("").List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
@@ -100,9 +93,7 @@ func getRolesFromKubernetes(i *accounts.Input) []string{
 	// Examples for error handling:
 	// - Use helper functions e.g. errors.IsNotFound()
 	// - And/or cast to StatusError and use its properties like e.g. ErrStatus.Message
-	_, err = clientset.CoreV1().Pods("default").Get(context.TODO(), "example-xxxxx", metav1.GetOptions{})
-	//roles, err := clientset.RbacV1().ClusterRoles().Get(context.TODO(), "k", metav1.GetOptions{})
-	roles, err := clientset.RbacV1().ClusterRoles().List(context.TODO(),metav1.ListOptions{})
+	roles, err := clientset.RbacV1().ClusterRoles().List(context.TODO(), metav1.ListOptions{})
 	if errors.IsNotFound(err) {
 		fmt.Printf("Pod example-xxxxx not found in default namespace\n")
 	} else if statusError, isStatus := err.(*errors.StatusError); isStatus {
@@ -124,6 +115,6 @@ func getRolesFromKubernetes(i *accounts.Input) []string{
 			}
 		}
 	}
-
+	sort.Strings(names)
 	return names
 }

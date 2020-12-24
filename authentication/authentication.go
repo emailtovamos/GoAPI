@@ -2,11 +2,11 @@ package authentication
 
 import (
 	"context"
+	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/emailtovamos/GoAPI/accounts"
 	u "github.com/emailtovamos/GoAPI/utils"
 	"net/http"
-	"fmt"
 	"os"
 	"strings"
 )
@@ -77,5 +77,5 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 		ctx := context.WithValue(r.Context(), "user", tk.UserId)
 		r = r.WithContext(ctx)
 		next.ServeHTTP(w, r) //proceed in the middleware chain!
-	});
+	})
 }
