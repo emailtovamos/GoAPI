@@ -7,6 +7,7 @@ import (
 	"github.com/rs/zerolog/log"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"net/http"
+	"regexp"
 
 	"context"
 	"fmt"
@@ -55,7 +56,7 @@ var GetRoles = func(w http.ResponseWriter, r *http.Request) {
 
 func getRoles(i *accounts.Input) map[string]interface{} {
 	resp := u.Message(true, "Getting roles")
-	allRoles := getRolesFromKubernetes()
+	allRoles := getRolesFromKubernetes(i)
 	var all accounts.Roles
 	for _, role := range allRoles {
 		all.Roles = append(all.Roles, accounts.Role{
@@ -74,7 +75,8 @@ func getRoles(i *accounts.Input) map[string]interface{} {
 	return resp
 }
 
-func getRolesFromKubernetes() []string{
+func getRolesFromKubernetes(i *accounts.Input) []string{
+	givenSubject := i.Subject
 	var names []string
 	// creates the in-cluster config
 	config, err := rest.InClusterConfig()
@@ -112,7 +114,14 @@ func getRolesFromKubernetes() []string{
 		fmt.Printf("Found role in default namespace\n")
 		for _, item := range roles.Items {
 			fmt.Println("role name: ", item.Name)
-			names = append(names, item.Name)
+			// TODO Here filter out based on subject names (Subject can be ServiceAccounts)
+			// system:serviceaccount: (singular) is the prefix for service account usernames.
+			//system:serviceaccounts: (plural) is the prefix for service account groups.
+			// Groups, like users, are represented as strings, and that string has no format requirements, other than that the prefix system: is reserved.
+			match, _ := regexp.MatchString(givenSubject, item.Name)
+			if match {
+				names = append(names, item.Name)
+			}
 		}
 	}
 

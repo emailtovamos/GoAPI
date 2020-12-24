@@ -19,7 +19,7 @@
 
     - Authorization: Bearer Token - <token you copied before>
 
-    - Body: `{"subject": "inputSubject"}` 
+    - Body: `{"subject": "system"}` 
 
     - Execute it to get the output. 
 
@@ -73,7 +73,7 @@ Use this token to do the `GET` request to get the roles:
 
 Authorization: Bearer Token - <token you copied before>
 
-Body: `{"subject": "inputSubject"}` 
+Body: `{"subject": "system"}` 
 
 Execute it to get the output. 
 
